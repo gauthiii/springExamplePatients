@@ -16,38 +16,48 @@ public class PatientDaoService {
     private static int patientsCount = 0;
 
     static {
-        // Ensure patientsCount and patients list are declared and initialized properly
         patients.add(new Patient(++patientsCount, "Gautham", LocalDate.of(1999, 8, 21), "Wheezing", "9840483494",
-            "1234 Elm Street", "Male", Arrays.asList("Albuterol"), Arrays.asList("Peanuts"),
-            "178 cm", "118 kg", "36.2", "A1+",
-            "Asthma", "BlueCross", "BC1234567", "Niveda", "Sister", "9840483494", 
-            Arrays.asList(), Arrays.asList(), Arrays.asList()));
-    
-        patients.add(new Patient(++patientsCount, "Mira", LocalDate.of(1987, 3, 14), "None", "9550550123",
-            "567 Oak Lane", "Female", Arrays.asList(), Arrays.asList(),
-            "165 cm", "54 kg", "19.8", "O+",
-            "None", "HealthPlus", "HP2345608", "Rohan", "Brother", "9550550124", 
-            Arrays.asList("2023-10-03"), Arrays.asList("Multivitamin"), Arrays.asList()));
-    
-        patients.add(new Patient(++patientsCount, "Anil", LocalDate.of(1972, 5, 22), "Hypertension", "9234567890",
-            "789 Pine Road", "Male", Arrays.asList("Lisinopril"), Arrays.asList("Nuts"),
-            "170 cm", "82 kg", "28.4", "B+",
-            "High Blood Pressure", "MediCare", "MC3456712", "Anita", "Wife", "9234567891", 
-            Arrays.asList("2023-11-15"), Arrays.asList("Lisinopril"), Arrays.asList("Invoice#7892")));
-    
-        patients.add(new Patient(++patientsCount, "Sophia", LocalDate.of(2001, 12, 25), "Type 1 Diabetes", "9888665544",
-            "123 Maple Street", "Female", Arrays.asList("Insulin"), Arrays.asList("Gluten"),
-            "162 cm", "60 kg", "22.9", "AB-",
-            "Diabetes Mellitus", "CareFirst", "CF4567823", "Max", "Father", "9888665545", 
-            Arrays.asList("2023-12-12"), Arrays.asList("Insulin"), Arrays.asList("Invoice#7901", "Invoice#7902")));
-    
-        patients.add(new Patient(++patientsCount, "Liam", LocalDate.of(1990, 9, 9), "Seasonal Allergies", "9777554466",
-            "321 Birch Avenue", "Male", Arrays.asList("Loratadine"), Arrays.asList("Pollen"),
-            "175 cm", "75 kg", "24.5", "A-",
-            "Allergic Rhinitis", "GlobalHealth", "GH5678934", "Olivia", "Partner", "9777554467", 
-            Arrays.asList("2023-09-01"), Arrays.asList("Loratadine"), Arrays.asList()));
+            "1234 Elm Street", "Male", Arrays.asList("Albuterol"), Arrays.asList("Peanuts"), "Asthma",
+            "BlueCross", "BC1234567", "Niveda", "Sister", "9840483494",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+            
+        patients.add(new Patient(++patientsCount, "Anita", LocalDate.of(1995, 5, 15), "Migraines", "9940583494",
+        "5678 Maple Drive", "Female", Arrays.asList("Sumatriptan"), Arrays.asList("Gluten"), "Chronic Migraine",
+        "UnitedHealth", "UH2345678", "Rajesh Kumar", "Brother", "9940583495",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+
+        patients.add(new Patient(++patientsCount, "Raj", LocalDate.of(1988, 12, 10), "Diabetes", "9040583494",
+        "9101 Pine Road", "Male", Arrays.asList("Metformin"), Arrays.asList("None"), "Type 2 Diabetes",
+        "Cigna", "CG3456789", "Simran Raj", "Wife", "9040583495",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+
+        patients.add(new Patient(++patientsCount, "Lila", LocalDate.of(2002, 3, 25), "Eczema", "9340583494",
+        "3214 Oak Lane", "Female", Arrays.asList("Corticosteroid cream"), Arrays.asList("Dairy"), "Eczema",
+        "Aetna", "AT4567890", "Mohit Lila", "Father", "9340583495",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+            
+        patients.add(new Patient(++patientsCount, "Sam", LocalDate.of(1980, 7, 30), "Hypertension", "9140583494",
+        "13245 Birch Avenue", "Male", Arrays.asList("Lisinopril"), Arrays.asList("Shellfish"), "High Blood Pressure",
+        "Kaiser", "KP5678901", "Nina Sam", "Mother", "9140583495",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+
+        patients.add(new Patient(++patientsCount, "Diana", LocalDate.of(1975, 9, 19), "No known conditions", "9740583494",
+        "7812 Cedar Blvd", "Female", Arrays.asList(), Arrays.asList(), "None",
+        "Humana", "HM6789012", "Charles Diana", "Husband", "9740583496",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+
+        patients.add(new Patient(++patientsCount, "Leo", LocalDate.of(1992, 11, 11), "Arthritis", "9840583484",
+        "8823 Spruce Street", "Male", Arrays.asList("Ibuprofen"), Arrays.asList("Ibuprofen"), "Rheumatoid Arthritis",
+        "BlueCross", "BC2345612", "Sophie Leo", "Sister", "9840583485",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+
+        patients.add(new Patient(++patientsCount, "Tina", LocalDate.of(1990, 10, 5), "Bronchitis", "9940483484",
+        "4519 Willow Path", "Female", Arrays.asList("Amoxicillin"), Arrays.asList("Latex"), "Chronic Bronchitis",
+        "UnitedHealth", "UH3345613", "Alex Tina", "Brother", "9940483485",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+            
+        patients.add(new Patient(++patientsCount, "Vikram", LocalDate.of(1984, 4, 20), "Dermatitis", "9840583484",
+        "6237 Elm Street", "Male", Arrays.asList("Hydrocortisone"), Arrays.asList("Nickel"), "Contact Dermatitis",
+        "Cigna", "CG4356714", "Preeti Vikram", "Wife", "9840583485",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+
+        patients.add(new Patient(++patientsCount, "Isha", LocalDate.of(2001, 1, 1), "Anxiety", "9540483494",
+        "1328 Maple Avenue", "Female", Arrays.asList("Escitalopram"), Arrays.asList("None"), "Generalized Anxiety Disorder",
+        "Aetna", "AT5367815", "Amit Isha", "Father", "9540483495",Arrays.asList(),Arrays.asList(),Arrays.asList()));
+
+     
     }
-    
 
     public Patient save(Patient patient) {
 		patient.setId(++patientsCount);
