@@ -3,12 +3,20 @@ package com.example.patient.example_patient;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
+@Entity
 public class Patient {
 
+    protected Patient() {}
+
     //Personal Information
+    @Id
+    @GeneratedValue
     private Integer id;
 
     @Size(min=2, message = "Name should have atleast 2 characters")
@@ -21,6 +29,10 @@ public class Patient {
     private String address;
     private String gender;
     //Medical Information
+    private String height;
+    private String weight;
+    private String bmi;
+    private String blood;
     private String medicalHistory;
     private List<String> currentMedications;
     private List<String> allergies;
@@ -37,8 +49,9 @@ public class Patient {
     private List<String> bills;
 
     // Full constructor
-    public Patient(Integer id, String name, LocalDate birthDate, String medicalHistory, String contact, 
+    public Patient(Integer id, String name, LocalDate birthDate, String medicalHistory, String contact,
                    String address, String gender, List<String> currentMedications, List<String> allergies,
+                   String height, String weight, String bmi, String blood, 
                    String primaryDiagnosis, String insuranceProvider, String insurancePolicyNumber,
                    String emergencyContactName, String emergencyContactRelation, String emergencyContactPhone,
                    List<String> appointments,List<String> prescriptions,List<String> bills) {
@@ -51,6 +64,10 @@ public class Patient {
         this.gender = gender;
         this.currentMedications = currentMedications;
         this.allergies = allergies;
+        this.height = height;
+        this.weight=weight;
+        this.bmi=bmi;
+        this.blood=blood;
         this.primaryDiagnosis = primaryDiagnosis;
         this.insuranceProvider = insuranceProvider;
         this.insurancePolicyNumber = insurancePolicyNumber;
@@ -89,6 +106,19 @@ public class Patient {
     
     public List<String> getAllergies() { return allergies; }
     public void setAllergies(List<String> allergies) { this.allergies = allergies; }
+
+    public String getHeight() { return height; }
+    public void setHeight(String height) { this.height = height; }
+
+    public String getWeight() { return weight; }
+    public void setWeight(String weight) { this.weight = weight; }
+
+    public String getBmi() { return bmi; }
+    public void setBmi(String bmi) { this.bmi = bmi; }
+
+    public String getBlood() { return blood; }
+    public void setBlood(String blood) { this.blood = blood; }
+
     
     public String getPrimaryDiagnosis() { return primaryDiagnosis; }
     public void setPrimaryDiagnosis(String primaryDiagnosis) { this.primaryDiagnosis = primaryDiagnosis; }
@@ -130,6 +160,10 @@ public String toString() {
             ", gender='" + gender + '\'' +
             ", currentMedications=" + currentMedications +
             ", allergies=" + allergies +
+            ", height=" + height +
+            ", weight=" + weight +
+            ", bmi=" + bmi +
+            ", blood=" + blood +
             ", primaryDiagnosis='" + primaryDiagnosis + '\'' +
             ", insuranceProvider='" + insuranceProvider + '\'' +
             ", insurancePolicyNumber='" + insurancePolicyNumber + '\'' +
