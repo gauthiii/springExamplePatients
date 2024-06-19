@@ -2,6 +2,7 @@ package com.example.patient.example_patient;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 // import org.springframework.hateoas.EntityModel;
 // import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
@@ -19,34 +20,34 @@ import jakarta.validation.Valid;
 // import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
-public class PatientResource {
+public class PatientJpaResource {
 
+  
+     private PatientRepository repository;
 
-     private PatientDaoService service;
-
-	public PatientResource(PatientDaoService service) {
-		this.service = service;
+	public PatientJpaResource(PatientRepository repository) {
+		this.repository = repository;
 	}
 
-	// GET /patients
-	@GetMapping("/patients")
+	// GET /jpa/patients
+	@GetMapping("/jpa/patients")
 	public List<Patient> retrieveAllPatients() {
-		return service.findAll();
+		return repository.findAll();
 	}
 
-	// GET /patients
-	@GetMapping("/patients/{id}")
-	public Patient retrievePatient(@PathVariable int id) {
-        Patient patient = service.findOne(id);
+	// GET /jpa/patients
+	@GetMapping("/jpa/patients/{id}")
+	public Optional<Patient> retrievePatient(@PathVariable int id) {
+        Optional<Patient> patient = repository.findById(id);
         
 		
-		if(patient==null)
+		if(patient.isEmpty())
 			throw new PatientNotFoundException("Patient not found with ID: "+id);
 		
 		return patient;
 	}
 
-	// @GetMapping("/patientsx/{id}")
+	// @GetMapping("/jpa/patientsx/{id}")
 	// public EntityModel<Patient> retrieveUser(@PathVariable int id) {
 	// 	Patient patient = service.findOne(id);
 		
@@ -61,11 +62,11 @@ public class PatientResource {
 	// 	return entityModel;
 	// }
 
-    //POST /patients
-    @PostMapping("/patients")
+    //POST /jpa/patients
+    @PostMapping("/jpa/patients")
 	public ResponseEntity<Patient> createUser(@Valid @RequestBody Patient patient) {
 		
-		Patient savedPatient = service.save(patient);
+		Patient savedPatient = repository.save(patient);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
 						.path("/{id}")
@@ -76,10 +77,11 @@ public class PatientResource {
 	}
 
 
-    //DELETE /patients
-	@DeleteMapping("/patients/{id}")
+    //DELETE /jpa/patients
+	@DeleteMapping("/jpa/patients/{id}")
 	public void deletePatient(@PathVariable int id) {
-		service.deleteById(id);
+		repository.deleteById(id);
 	}
+
 
 }

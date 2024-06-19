@@ -12,7 +12,9 @@ import jakarta.validation.constraints.Size;
 @Entity
 public class Patient {
 
-    protected Patient() {}
+    protected Patient() {
+        
+    }
 
     //Personal Information
     @Id
